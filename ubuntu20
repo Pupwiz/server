@@ -87,5 +87,5 @@ echo "[Unit]
         systemctl start systemup;
         systemctl enable systemdown;
         systemctl start systemdown;
- reboot
-wget -O /var/www/html/ https://raw.githubusercontent.com/Pupwiz/server/master/index.php
+ wget -O /var/www/html/index.php https://raw.githubusercontent.com/Pupwiz/server/master/index.php
+reboot
