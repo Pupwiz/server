@@ -59,7 +59,7 @@ systemctl start radarr
 wget -O /tmp/plex.deb  "https://plex.tv/downloads/latest/1?channel=16&build=linux-ubuntu-x86_64&distro=ubuntu&X-Plex-Token=removed";
 dpkg -i /tmp/plex.deb;
 rm /tmp/plex.deb;
-pip install -r /opt/mp4auto/setup/requirements.txt
+pip3 install -r /opt/mp4auto/setup/requirements.txt
 cp /opt/mp4auto/setup/autoProcess.ini.sample /opt/mp4auto/config/autoProcess.ini
 sed -i '/temp-extension/c temp-extension = conv' /opt/mp4auto/config/autoProcess.ini
 chown ${username}.${username} -R /opt/mp4auto
