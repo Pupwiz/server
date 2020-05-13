@@ -63,6 +63,7 @@ pip3 install -r /opt/mp4auto/setup/requirements.txt
 cp /opt/mp4auto/setup/autoProcess.ini.sample /opt/mp4auto/config/autoProcess.ini
 sed -i '/temp-extension/c temp-extension = conv' /opt/mp4auto/config/autoProcess.ini
 chown ${username}.${username} -R /opt/mp4auto
+chmod 777 -R /opt/mp4auto
 echo "[Unit]
         Description=Beep after system start
         DefaultDependencies=no
