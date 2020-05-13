@@ -1,6 +1,6 @@
 usermod -aG sudo media
 username=media
-apt install -y zip unzip rar unrar beep python3 python3-pip wget curl git sharutils ffmpeg mono-devel transmission-daemon debconf-utils
+apt install -y zip unzip rar unrar beep openvpn python3 python3-pip wget curl git sharutils ffmpeg mono-devel transmission-daemon debconf-utils
 apt install -y samba cifs-utils smbclient avahi-daemon lighttpd php-cgi php-cli php-mysql php-gd php-imagick php-tidy php-xmlrpc
 systemctl stop transmission-daemon
 systemctl enable lighttpd
