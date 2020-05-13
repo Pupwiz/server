@@ -28,7 +28,7 @@ sonarr sonarr/config_directory string /var/lib/sonarr
 sonarr sonarr/owning_group string media
 SON
 sudo debconf-set-selections /opt/sonarr.seed
-apt install sonarr
+apt install -y sonarr
 jackett=$(curl -s https://api.github.com/repos/Jackett/Jackett/releases/latest | grep AMDx64 | grep browser_download_url | cut -d \" -f4)
 wget -q $jackett
 tar -xvzf Jackett.Binaries.LinuxAMDx64.tar.gz > /dev/null 2>&1
