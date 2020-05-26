@@ -1,11 +1,9 @@
 usermod -aG sudo media
 username=media
 apt install -y zip unzip rar unrar beep openvpn openvpn-systemd-resolved python3 python3-pip wget curl git sharutils ffmpeg mono-devel transmission-daemon debconf-utils
-apt install -y samba cifs-utils smbclient avahi-daemon lighttpd php-cgi php-cli php-mysql php-gd php-imagick php-tidy php-xmlrpc
+apt install -y samba cifs-utils smbclient avahi-daemon nginx php-cgi php-cli php-mysql php-gd php-imagick php-tidy php-xmlrpc
 systemctl stop transmission-daemon
-systemctl enable lighttpd
-sudo lighttpd-enable-mod fastcgi 
-sudo lighttpd-enable-mod fastcgi-php
+systemctl enable nginx
 sed -i '/PermitRootLogin/c PermitRootLogin yes' /etc/ssh/sshd_config ;
 sed -i '/blacklist snd_pcsp/c #blacklist snd_pcsp' /etc/modprobe.d/blacklist.conf ;
 sed -i '/blacklist pcspkr/c #blacklist pcspkr' /etc/modprobe.d/blacklist.conf ;
@@ -16,6 +14,9 @@ systemctl enable transmission-daemon
 modprobe pcspkr
 sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 10
 cd /opt
+wget https://dev.azure.com/Radarr/Radarr/_apis/build/builds/1062/artifacts?artifactName=Packages&fileId=AC6B4B450EFE76E3A5B85BF6AB5B5E7C8E0727704AA4FA4532C07006F936563D02&fileName=Radarr.aphrodite.3.0.0.2907.linux.tar.gz&api-version=5.1
+tar -xvzf Radarr.aphrodite.* > /dev/null 2>&1
+rm -f Radarr.aphrodie.*.tar.gz
 git clone https://github.com/mdhiggins/sickbeard_mp4_automator.git mp4auto
 git clone https://github.com/begleysm/ipwatch.git
 git clone https://github.com/mrworf/plexupdate.git
@@ -47,7 +48,7 @@ After=syslog.target network.target
 User=${username}
 Group=${username}
 Type=simple
-ExecStart=/usr/bin/mono /opt/Radarr/Radarr.exe -nobrowser
+ExecStart=/opt/Radarr/Radarr -nobrowser
 TimeoutStopSec=20
 KillMode=process
 Restart=on-failure
