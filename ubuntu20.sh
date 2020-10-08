@@ -16,7 +16,7 @@ wget -nv https://downloads.plex.tv/plex-keys/PlexSign.key -O- | apt-key add -;
 echo "deb https://downloads.plex.tv/repo/deb public main" | tee  /etc/apt/sources.list.d/plexserver.list;
 apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 0C54D189F4BA284D;
 apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 4f4ea0aae5267a6c
-echo "deb http://ppa.launchpad.net/ondrej/php/ubuntu main " | tee /etc/apt/sources.list.d/php.list;
+sudo add-apt-repository ppa:ondrej/php -y
 sudo apt update
 ##Istalling Nginx and PHP for simple webpage also included mysql plugins
 apt install -q -y  nginx php7.4 php7.4-common php7.4-cli php7.4-fpm python3-pip openvpn --allow-unauthenticated;
