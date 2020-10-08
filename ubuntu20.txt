@@ -65,8 +65,8 @@ sudo debconf-set-selections /opt/sonarr.seed
 apt install sonarr plexmediaserver -y
 rm sonarr.seed
 ##use google downloader to get new version of Radarr##
-wget https://raw.githubusercontent.com/circulosmeos/gdown.pl/master/gdown.pl
-chmod +x gdown.pl
+#wget https://raw.githubusercontent.com/circulosmeos/gdown.pl/master/gdown.pl
+#chmod +x gdown.pl
 echo "[Unit]
         Description=Cloud Commander
         [Service]
@@ -107,9 +107,11 @@ echo "[Unit]
         systemctl enable systemdown;
         systemctl start systemdown;
 cd /opt;
-./gdown.pl https://drive.google.com/file/d/1AwnCW__YiQ__qAed9saAsZpCY_Nrn0Fd/view?usp=sharing
-rm gdown.pl
-mv gdown.* radarr.tar.gz
+#./gdown.pl https://drive.google.com/file/d/1AwnCW__YiQ__qAed9saAsZpCY_Nrn0Fd/view?usp=sharing
+#rm gdown.pl
+#mv gdown.* radarr.tar.gz
+##V3 Radarr install 
+curl -L --output radarr.tar.gz https://radarr.servarr.com/v1/update/nightly/updatefile?os=linux&runtime=netcore&arch=x64
 tar xf radarr.tar.gz
 rm radarr.tar.gz
 chown media:media /opt/Radarr -Rv;
