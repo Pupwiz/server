@@ -1,3 +1,11 @@
+apt purge cloud-init snapd -y
+rm -Rf /etc/cloud
+usermod -aG sudo media
+##uncomment next lines if you want virtual machine installed
+#apt install -y qemu-kvm libvirt-clients libvirt-daemon-system bridge-utils virt-manager
+#adduser media libvirt
+#adduser media libvirt-qemu
+##Things needed to make it all work together
 usermod -aG sudo media
 username=media
 apt install -y zip unzip rar unrar beep openvpn openvpn-systemd-resolved python3 python3-pip wget curl git sharutils ffmpeg mono-devel transmission-daemon debconf-utils
