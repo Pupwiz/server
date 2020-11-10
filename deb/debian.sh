@@ -66,10 +66,9 @@ chown media:media /home/media/youtubedl -Rv
 rm /tmp/youtubedl-material-4.1.zip
 cd /home/media/youtubedl
 sudo -u media npm -- install /home/media/youtubedl/
-sudo -u media npm --prefix /home/media/youtubedl/ uuid
+sudo -u media npm --prefix /home/media/youtubedl/ uuid@latest
 sudo -u media npm --prefix /home/media/youtubedl/ fsevents@latest
-sudo -u media npm --prefix /home/media/youtubedl/ fsevents@latest
-sudo -u media pm2 start npm -- start /home/media/youtubedl/
+sudo -u media pm2 start npm -- start ~youtubedl/
 sudo -u media pm2 save
 sudo -u media pm2 startup
 sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -u media --hp /home/media
