@@ -69,7 +69,7 @@ sudo -u media npm -- install /opt/youtubedl/
 sudo -u media npm --prefix /opt/youtubedl/ uuid
 sudo -u media npm --prefix /opt/youtubedl/ fsevents@latest
 sudo -u media npm --prefix /opt/youtubedl/ fsevents@latest
-sudo -u media pm2 start -i 1 --name youtubedl npm -- start /opt/youtubedl/
+sudo -u media pm2 start npm -- start /opt/youtubedl/
 sudo -u media pm2 save
 sudo -u media pm2 startup
 sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -u media --hp /home/media
