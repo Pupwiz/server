@@ -61,15 +61,15 @@ tmux kill-session -t cloudtmp
 ## Better Youtube DL
 wget https://github.com/Tzahi12345/YoutubeDL-Material/releases/download/v4.1/youtubedl-material-4.1.zip
 unzip youtubedl-material-4.1.zip -d /tmp/
-mv /tmp/youtubedl-material/ /opt/youtubedl
-chown media:media /opt/youtubedl -Rv
+mv /tmp/youtubedl-material/ /home/media/youtubedl
+chown media:media /home/media/youtubedl -Rv
 rm /tmp/youtubedl-material-4.1.zip
-cd /opt/youtubedl
-sudo -u media npm -- install /opt/youtubedl/
-sudo -u media npm --prefix /opt/youtubedl/ uuid
-sudo -u media npm --prefix /opt/youtubedl/ fsevents@latest
-sudo -u media npm --prefix /opt/youtubedl/ fsevents@latest
-sudo -u media pm2 start npm -- start /opt/youtubedl/
+cd /home/media/youtubedl
+sudo -u media npm -- install /home/media/youtubedl/
+sudo -u media npm --prefix /home/media/youtubedl/ uuid
+sudo -u media npm --prefix /home/media/youtubedl/ fsevents@latest
+sudo -u media npm --prefix /home/media/youtubedl/ fsevents@latest
+sudo -u media pm2 start npm -- start /home/media/youtubedl/
 sudo -u media pm2 save
 sudo -u media pm2 startup
 sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -u media --hp /home/media
