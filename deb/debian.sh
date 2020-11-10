@@ -89,6 +89,9 @@ modprobe pcspkr
 sed -i '/;cgi.fix_pathinfo=1/c cgi.fix_pathinfo=0' /etc/php/7.4/fpm/php.ini;
 ##install the cool accessories that make things work better##
 cd /opt
+wget https://raw.githubusercontent.com/Pupwiz/server/master/deb/index.php
+wget https://raw.githubusercontent.com/Pupwiz/server/master/deb/default
+wget https://raw.githubusercontent.com/Pupwiz/server/master/deb/unpack.sh
 git clone https://github.com/mdhiggins/sickbeard_mp4_automator.git mp4auto
 git clone https://github.com/begleysm/ipwatch.git
 git clone https://github.com/mrworf/plexupdate.git
@@ -312,7 +315,7 @@ chmod -R 775 /var/www/html/mywebsql/
 mv /opt/default /etc/nginx/sites-available/ -v
 mv /opt/index.php /var/www/html/ -v
 mv /opt/.htpasswd /etc/nginx/ -v
-rm /etc/init.d/setup
+mv /opt/unpack.sh /home/media/ -v
 ##house keeping##
 ##verbose grub booting for info its a server??##
 sed -i '/GRUB_TIMEOUT_STYLE=hidden/d' /etc/default/grub;
