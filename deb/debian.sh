@@ -1,8 +1,11 @@
 ## run debian.sh >log 2>errors
-apt purge snapd -y
+apt purge snapd apparmor -y
 apt install -y sudo
+echo "deb http://ftp.de.debian.org/debian buster main non-free" | sudo tee /etc/apt/sources.list.d/nonfree.list
+apt update
 PATH=$PATH:/usr/sbin
 sudo apt -y install software-properties-common dirmngr apt-transport-https lsb-release ca-certificates curl zip unzip
+apt install -y beep genisoimage libarchive-tools syslinux-utils sharutils gnupg unrar ffmpeg mono-devel transmission-daemon debconf-utils
 usermod -aG sudo media
 cat <<EOF >> /etc/sysctl.conf
 net.ipv4.ip_forward=1
@@ -14,7 +17,6 @@ net.core.optmem_max = 65536
 net.ipv4.tcp_rmem = 4096 1048576 2097152
 net.ipv4.tcp_wmem = 4096 65536 16777216
 EOF
-echo "deb http://ftp.de.debian.org/debian buster main non-free" | sudo tee /etc/apt/sources.list.d/nonfree.list
 sudo wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg # Download the signing key 
 sudo sh -c 'echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list' 
 sysctl -p
@@ -35,7 +37,6 @@ apt update
 #adduser media libvirt
 #adduser media libvirt-qemu
 ##Things needed to make it all work together
-apt install -y beep genisoimage libarchive-tools syslinux-utils wget sharutils sudo gnupg ca-certificates curl git dirmngr apt-transport-https unzip zip unrar ffmpeg mono-devel transmission-daemon debconf-utils
 ##Istalling Nginx and PHP for simple webpage also included mysql plugins
 apt install -q -y  nginx php7.4 php7.4-common php7.4-cli php7.4-fpm python3-pip openvpn --allow-unauthenticated;
 apt install -y -q php7.4-mysql php7.4-gd php7.4-json php7.4-curl php7.4-zip php7.4-xml php7.4-mbstring php7.4-pgsql php7.4-bcmath;
