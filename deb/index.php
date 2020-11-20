@@ -50,7 +50,9 @@ Internal Links<br>
                     <li><a href="http://<?php echo $server_ip; ?>:7878" target="_blank">Radarr</a></li>
                     <li><a href="http://<?php echo $server_ip; ?>:9117" target="_blank">Jackett</a></li>
                     <li><a href="http://<?php echo $server_ip; ?>:9091" target="_blank">Transmission</a></li>
-                    <li><a href="http://<?php echo $server_ip; ?>:5000" target="_blank">YouTubeDL</a></li>
+                    <li><a href="http://<?php echo $server_ip; ?>:17442" target="_blank">YouTubeDL</a></li>
+                    <li><a href="http://<?php echo $server_ip; ?>:8000" target="_blank">CloudCmd</a></li>
+                    <li><a href="http://<?php echo $server_ip; ?>:1337" target="_blank">Gritty Terminal</a></li>
                     </ul>
             </nav>
         </header>
@@ -63,13 +65,14 @@ VPN <?php echo $vpnip; ?>
             <nav id="ext-navigation">
                   <ul>
                     <li><a href="index.php">Home</a></li>
-                    <li><a href="http://<?php echo $exip; ?>:8000" target="_blank">CloudCmd</a></li>
                     <li><a href="http://<?php echo $exip; ?>:32400/web" target="_blank">Plex</a></li>
                     <li><a href="http://<?php echo $exip; ?>:8989" target="_blank">Sonarr</a></li>
                     <li><a href="http://<?php echo $exip; ?>:7878" target="_blank">Radarr</a></li>
                     <li><a href="http://<?php echo $exip; ?>:9117" target="_blank">Jackett</a></li>
                     <li><a href="http://<?php echo $exip; ?>/transmission" target="_blank">Transmission</a></li>
-                    <li><a href="http://<?php echo $exip; ?>:5000" target="_blank">YouTubeDL</a></li>
+                    <li><a href="http://<?php echo $exip; ?>:17442" target="_blank">YouTubeDL</a></li>
+                    <li><a href="http://<?php echo $exip; ?>:8000" target="_blank">CloudCmd</a></li>
+                    <li><a href="http://<?php echo $exip; ?>:1337" target="_blank">Gritty Terminal</a></li>
                     </ul>
             </nav>
         </header>
