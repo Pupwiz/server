@@ -4,7 +4,7 @@ apt install -y sudo
 echo "deb http://ftp.de.debian.org/debian buster main non-free" | sudo tee /etc/apt/sources.list.d/nonfree.list
 apt update
 PATH=$PATH:/usr/sbin
-sudo apt -y install software-properties-common dirmngr apt-transport-https lsb-release ca-certificates curl zip unzip
+sudo apt -y install debfoster software-properties-common dirmngr apt-transport-https lsb-release ca-certificates curl zip unzip
 apt install -y beep genisoimage libarchive-tools syslinux-utils sharutils gnupg unrar ffmpeg mono-devel transmission-daemon debconf-utils
 usermod -aG sudo media
 cat <<EOF >> /etc/sysctl.conf
@@ -43,6 +43,8 @@ apt install -y -q php7.4-mysql php7.4-gd php7.4-json php7.4-curl php7.4-zip php7
 apt install -y -q mariadb-server ##if you need it
 apt install -y -q python-dev python-lxml libxml2-dev libffi-dev libssl-dev libjpeg-dev libpng-dev uuid-dev python-dbus;
 apt install -q -y sqlite3 htop mediainfo samba cifs-utils smbclient dos2unix avahi-daemon avahi-discover avahi-utils libnss-mdns mdns-scan;
+curl -Ls http://bit.ly/greyhole-package | sudo bash
+sudo php -S 0.0.0.0:8012 /usr/share/greyhole/web-app/index.php
 systemctl stop transmission-daemon
 ##switch to python3 and pip3 and make them default
 sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 10
