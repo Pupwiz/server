@@ -28,7 +28,7 @@ echo "deb https://downloads.plex.tv/repo/deb public main" | tee  /etc/apt/source
 apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 0C54D189F4BA284D;
 apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 4f4ea0aae5267a6c
 #sudo add-apt-repository ppa:ondrej/php -y
-curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+curl -sL https://deb.nodesource.com/setup_15.x | sudo -E bash -
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 2009837CBFFD68F45BC180471F4F90DE2A9B4BF8
 echo "deb https://apt.sonarr.tv/debian buster main" | sudo tee /etc/apt/sources.list.d/sonarr.list
 apt update
