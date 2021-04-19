@@ -56,28 +56,27 @@ sudo -H -E npm config set unsafe-perm true
 sudo -H -E npm install cloudcmd -g
 sudo -H -E npm install gritty -g
 sudo -H -E npm install fsevents@latest -g -f
-sudo -H -E npm install pm2@latest -g
 ##Start Cloudcmd Temp for gritty access @ port 8000##
 tmux new-session -d -s "cloudtmp" cloudcmd --terminal --terminal-path `gritty --path` --save
 sleep 3
 tmux kill-session -t cloudtmp
 ## Better Youtube DL
-wget https://github.com/Tzahi12345/YoutubeDL-Material/releases/download/v4.1/youtubedl-material-4.1.zip
-unzip youtubedl-material-4.1.zip -d /tmp/
-mv /tmp/youtubedl-material/ /home/media/youtubedl
-chown media:media /home/media/youtubedl -Rv
-rm /tmp/youtubedl-material-4.1.zip
-cd /home/media/youtubedl
-sudo -u media npm -- install /home/media/youtubedl/
-sudo -u media npm --prefix /home/media/youtubedl/ uuid@latest
-sudo -u media npm --prefix /home/media/youtubedl/ fsevents@latest
-sudo -u media pm2 start npm -- start ~youtubedl/
-sudo -u media pm2 save
-sudo -u media pm2 startup
-sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -u media --hp /home/media
-pm2 start cloudcmd
-pm2 save
-pm2 startup
+#wget https://github.com/Tzahi12345/YoutubeDL-Material/releases/download/v4.1/youtubedl-material-4.1.zip
+#unzip youtubedl-material-4.1.zip -d /tmp/
+#mv /tmp/youtubedl-material/ /home/media/youtubedl
+#chown media:media /home/media/youtubedl -Rv
+#rm /tmp/youtubedl-material-4.1.zip
+#cd /home/media/youtubedl
+#sudo -u media npm -- install /home/media/youtubedl/
+#sudo -u media npm --prefix /home/media/youtubedl/ uuid@latest
+#sudo -u media npm --prefix /home/media/youtubedl/ fsevents@latest
+#sudo -u media pm2 start npm -- start ~youtubedl/
+#sudo -u media pm2 save
+#sudo -u media pm2 startup
+#sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -u media --hp /home/media
+#pm2 start cloudcmd
+#pm2 save
+#pm2 startup
 ##you can now login to cloudcmd @ server ip port:8000
 ##next fix permission on ssh and transmisson for access##
 sed -i '/PermitRootLogin/c PermitRootLogin yes' /etc/ssh/sshd_config ;
@@ -323,7 +322,7 @@ mv /opt/unpack.sh /home/media/ -v
 ##verbose grub booting for info its a server??##
 sed -i '/GRUB_TIMEOUT_STYLE=hidden/d' /etc/default/grub;
 sed -i '/splash quiet/d' /etc/default/grub;
-sed -i '/GRUB_TIMEOUT=0/c GRUB_TIMEOUT=3' /etc/default/grub;
+sed -i '/GRUB_TIMEOUT=0/c GRUB_TIMEOUT=2' /etc/default/grub;
 sed -i '$ a GRUB_RECORDFAIL_TIMEOUT=0' /etc/default/grub;
 update-grub2
 sleep 3
