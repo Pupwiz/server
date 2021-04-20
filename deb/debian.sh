@@ -6,6 +6,7 @@ apt update
 PATH=$PATH:/usr/sbin
 sudo apt -y install debfoster software-properties-common dirmngr apt-transport-https lsb-release ca-certificates curl zip unzip
 apt install -y beep genisoimage libarchive-tools syslinux-utils sharutils gnupg unrar ffmpeg mono-devel transmission-daemon debconf-utils
+sudo DEBIAN_FRONTEND=noninteractive apt-get -y install iptables-persistent
 usermod -aG sudo media
 cat <<EOF >> /etc/sysctl.conf
 net.ipv4.ip_forward=1
